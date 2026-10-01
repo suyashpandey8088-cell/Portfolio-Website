@@ -77,7 +77,8 @@
 }
 
 .name {
-  font-size: clamp(2.4rem, 10.2vw, 9.6rem);
+  /* sized to clear the fixed progress rail at full width */
+  font-size: clamp(2.4rem, 9.3vw, 9.2rem);
   font-weight: 600;
   line-height: 0.92;
   letter-spacing: -0.05em;
@@ -85,7 +86,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  will-change: transform, opacity, letter-spacing;
+  will-change: opacity;
 }
 
 .sub {
@@ -145,6 +146,14 @@
   }
   50% {
     transform: translateY(5px);
+  }
+}
+
+/* Narrow desktops: the rail eats into the line, and the name must keep its
+   full width at every scroll position, so size it down here instead. */
+@media (min-width: 861px) and (max-width: 1150px) {
+  .name {
+    font-size: 8.1vw;
   }
 }
 

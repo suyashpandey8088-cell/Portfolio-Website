@@ -46,15 +46,19 @@ export default function Hero() {
 
           // ---- Stage 1 : the name recedes -------------------------------
           tl.fromTo(
+            // The name holds its exact size and tracking all the way through;
+            // only its opacity moves, so it never reflows or shortens.
             q('[data-name]'),
-            { scale: 1, letterSpacing: '-0.05em', opacity: 1 },
-            { scale: mobile ? 0.68 : 0.52, letterSpacing: '0.08em', opacity: 0.35, duration: 0.4 },
+            { opacity: 1 },
+            { opacity: 0.35, duration: 0.4 },
             0
           )
             .fromTo(
+              // small drift only: the name keeps its full size now, so a big
+              // upward move would run the subtitle straight into it
               q('[data-sub]'),
               { y: 0, opacity: 1 },
-              { y: mobile ? -40 : -90, opacity: 0.25, duration: 0.4 },
+              { y: mobile ? -8 : -12, opacity: 0, duration: 0.26 },
               0
             )
             .fromTo(
@@ -78,7 +82,7 @@ export default function Hero() {
               { scale: 1, rotate: 70, opacity: 1, filter: 'blur(0px)', duration: 0.42 },
               0.28
             )
-            .to(q('[data-content]'), { opacity: 0.12, scale: 0.94, duration: 0.3 }, 0.34)
+            .to(q('[data-content]'), { opacity: 0.12, duration: 0.3 }, 0.34)
             .to(q('[data-orb]'), { scale: 1.5, rotate: 150, duration: 0.3 }, 0.7)
             .to(q('[data-ring]'), { rotate: -120, duration: 1 }, 0)
 
