@@ -25,9 +25,18 @@
   --mono: ui-monospace, 'SFMono-Regular', 'JetBrains Mono', Menlo, monospace;
 }
 
+/* The fixed progress rail occupies the right edge, so content needs a gutter
+   wide enough to clear it. Below 1200px the rail drops its labels (see
+   ProgressRail.module.css) and the gutter shrinks to match. */
 @media (min-width: 861px) {
   :root {
-    --pad-r: clamp(104px, 9vw, 190px);
+    --pad-r: clamp(96px, 9vw, 124px);
+  }
+}
+
+@media (min-width: 1201px) {
+  :root {
+    --pad-r: clamp(188px, 11vw, 215px);
   }
 }
 

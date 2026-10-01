@@ -81,6 +81,14 @@
   display: none;
 }
 
+/* Narrow desktops: numbers only, so the rail stops stealing line length. */
+@media (min-width: 861px) and (max-width: 1200px) {
+  .label,
+  .dash {
+    display: none;
+  }
+}
+
 @media (max-width: 860px) {
   .rail {
     right: 0;

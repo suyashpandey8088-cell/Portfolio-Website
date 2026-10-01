@@ -30,7 +30,7 @@ const STATES = [
 
 const STATS = [
   { v: 'AI & Data Science', l: 'Field of study' },
-  { v: '3+', l: 'Internships' },
+  { v: '5', l: 'Internships' },
   { v: 'Multiple', l: 'Projects shipped' },
   { v: 'Hackathons', l: '& tech events' },
 ];
