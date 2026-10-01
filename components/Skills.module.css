@@ -1,0 +1,174 @@
+.skills {
+  position: relative;
+  height: 480vh;
+  z-index: 2;
+}
+
+.glow {
+  position: absolute;
+  top: 25%;
+  left: 55%;
+  width: min(100vh, 95vw);
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(91, 140, 255, 0.16), transparent 65%);
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(28px, 6vh, 64px);
+  padding: clamp(90px, 14vh, 150px) var(--pad-r) clamp(70px, 12vh, 130px) var(--pad);
+  overflow: hidden;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 1480px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.title {
+  max-width: 14ch;
+}
+
+.stage {
+  position: relative;
+  width: 100%;
+  max-width: 1480px;
+  margin: 0 auto;
+  min-height: clamp(260px, 36vh, 380px);
+}
+
+.group {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 3vh, 34px);
+  will-change: transform, opacity, filter;
+}
+
+.ghead {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  will-change: transform, opacity;
+}
+
+.gnum {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  color: var(--accent);
+}
+
+.gtitle {
+  font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.gline {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--line-strong), transparent);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(12px, 1.4vw, 20px);
+}
+
+.card {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: clamp(14px, 1.6vw, 22px) clamp(20px, 2.2vw, 34px);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.012));
+  font-size: clamp(1rem, 2.1vw, 1.75rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  will-change: transform, opacity, filter;
+  transition: border-color 0.4s var(--ease), background 0.4s var(--ease),
+    box-shadow 0.4s var(--ease);
+}
+
+.card:hover {
+  border-color: rgba(91, 140, 255, 0.55);
+  background: rgba(91, 140, 255, 0.08);
+  box-shadow: 0 0 40px rgba(91, 140, 255, 0.14);
+}
+
+.cardDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+  flex: none;
+}
+
+@media (max-width: 860px) {
+  .skills {
+    height: auto;
+  }
+  .sticky {
+    position: relative;
+    min-height: 0;
+    padding: 12vh var(--pad);
+    gap: 36px;
+  }
+  .stage {
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .group {
+    position: relative;
+    inset: auto;
+  }
+  .card {
+    font-size: 1rem;
+    padding: 12px 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skills {
+    height: auto;
+  }
+  .sticky {
+    position: relative;
+    min-height: 0;
+  }
+  .stage {
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .group {
+    position: relative;
+    inset: auto;
+  }
+}

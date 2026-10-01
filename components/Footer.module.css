@@ -1,0 +1,83 @@
+.footer {
+  position: relative;
+  z-index: 3;
+  padding: clamp(50px, 8vh, 90px) var(--pad) clamp(76px, 10vh, 96px);
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 6vh, 60px);
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.name {
+  font-size: clamp(1.6rem, 6vw, 4rem);
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.tag {
+  font-family: var(--mono);
+  font-size: clamp(0.56rem, 1vw, 0.68rem);
+  letter-spacing: 0.3em;
+  color: var(--ink-faint);
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.copy {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--ink-faint);
+}
+
+.links {
+  display: flex;
+  gap: clamp(16px, 3vw, 34px);
+}
+
+.links a {
+  position: relative;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  transition: color 0.35s var(--ease);
+}
+
+.links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.4s var(--ease);
+}
+
+.links a:hover {
+  color: var(--ink);
+}
+
+.links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}

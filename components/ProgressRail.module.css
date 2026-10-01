@@ -1,0 +1,125 @@
+.rail {
+  position: fixed;
+  z-index: 70;
+  right: clamp(18px, 2.4vw, 42px);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: stretch;
+  gap: 18px;
+  pointer-events: none;
+}
+
+.track {
+  position: relative;
+  width: 1px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  transform: scaleY(0.001);
+  transform-origin: top center;
+  box-shadow: 0 0 14px var(--accent-glow);
+  will-change: transform;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(14px, 2.2vh, 26px);
+}
+
+.item {
+  opacity: 0.35;
+  transform: translateX(0);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+
+.item.on {
+  opacity: 1;
+  transform: translateX(-6px);
+}
+
+.link {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.num {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.item.on .num {
+  color: var(--accent);
+}
+
+.dash {
+  color: var(--ink-faint);
+}
+
+.label {
+  color: var(--ink-dim);
+}
+
+.item.on .label {
+  color: var(--ink);
+}
+
+.mobileLabel {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .rail {
+    right: 0;
+    left: 0;
+    top: auto;
+    bottom: 0;
+    transform: none;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    background: linear-gradient(0deg, rgba(7, 8, 12, 0.92), rgba(7, 8, 12, 0));
+  }
+  .list {
+    display: none;
+  }
+  .track {
+    order: 1;
+    width: 100%;
+    height: 2px;
+  }
+  .fill {
+    transform: scaleX(0.001);
+    transform-origin: left center;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  }
+  .mobileLabel {
+    order: 2;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    padding: 7px 0 9px;
+    margin: 0;
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .mobileLabel span {
+    color: var(--accent);
+  }
+}

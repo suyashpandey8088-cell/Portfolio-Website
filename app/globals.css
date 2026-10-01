@@ -1,0 +1,197 @@
+/* ============================================================
+   Design tokens
+   ============================================================ */
+:root {
+  --bg: #07080c;
+  --bg-elev: #0c0e14;
+  --ink: #f4f6fb;
+  --ink-dim: #9aa3b5;
+  --ink-faint: #5c6478;
+  --accent: #5b8cff;
+  --accent-2: #8f6bff;
+  --accent-glow: rgba(91, 140, 255, 0.55);
+  --line: rgba(255, 255, 255, 0.09);
+  --line-strong: rgba(255, 255, 255, 0.18);
+  --glass: rgba(255, 255, 255, 0.035);
+  --r-sm: 10px;
+  --r-md: 18px;
+  --r-lg: 28px;
+  --r-xl: 40px;
+  --pad: clamp(20px, 5vw, 88px);
+  /* right gutter so content never collides with the progress rail */
+  --pad-r: clamp(20px, 5vw, 88px);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --font: var(--font-sans, 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif);
+  --mono: ui-monospace, 'SFMono-Regular', 'JetBrains Mono', Menlo, monospace;
+}
+
+@media (min-width: 861px) {
+  :root {
+    --pad-r: clamp(104px, 9vw, 190px);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-synthesis-weight: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+  letter-spacing: -0.01em;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+::selection {
+  background: var(--accent);
+  color: #05060a;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   Utilities
+   ============================================================ */
+.u-eyebrow {
+  font-family: var(--mono);
+  font-size: clamp(0.62rem, 0.9vw, 0.74rem);
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.u-accent {
+  color: var(--accent);
+}
+
+.u-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 300;
+  transform: translateY(-200%);
+  background: var(--accent);
+  color: #05060a;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: transform 0.3s var(--ease);
+}
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+.section-title {
+  font-size: clamp(2.1rem, 7vw, 5.4rem);
+  font-weight: 600;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+}
+
+/* Single fixed atmosphere layer: grain + vignette in one composited layer.
+   No mix-blend-mode — blending the full viewport every frame is expensive. */
+.atmosphere {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 90;
+  opacity: 0.55;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.14'/%3E%3C/svg%3E"),
+    radial-gradient(120% 80% at 50% 40%, transparent 42%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .atmosphere {
+    display: none;
+  }
+}

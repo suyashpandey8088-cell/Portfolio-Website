@@ -1,0 +1,225 @@
+.about {
+  position: relative;
+  height: 420vh;
+  z-index: 2;
+}
+
+.aura {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: min(120vh, 110vw);
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(143, 107, 255, 0.16), transparent 62%);
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: clamp(70px, 11vh, 120px) var(--pad-r) clamp(50px, 8vh, 90px) var(--pad);
+}
+
+.grid {
+  width: 100%;
+  max-width: 1480px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.85fr) 1.15fr;
+  gap: clamp(32px, 6vw, 110px);
+  align-items: start;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.title {
+  background: linear-gradient(180deg, #ffffff, #8c9ac0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ticks {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.ticks li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.tick {
+  display: block;
+  width: 46px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.25;
+  transform: scaleX(0.4);
+  transform-origin: left center;
+  will-change: transform, opacity;
+}
+
+.tickLabel {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.26em;
+  color: var(--ink-faint);
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 3.2vh, 34px);
+}
+
+.lede {
+  font-size: clamp(1.05rem, 2vw, 1.6rem);
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  max-width: 34ch;
+}
+
+/* stacked states (desktop) */
+.stage {
+  position: relative;
+  min-height: clamp(200px, 27vh, 260px);
+}
+
+.state {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: clamp(20px, 2.4vw, 32px);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012));
+  opacity: 0;
+  will-change: transform, opacity, filter;
+}
+
+.stateNum {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+}
+
+.stateKey {
+  font-size: clamp(1.7rem, 4vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.stateBody {
+  font-size: clamp(0.92rem, 1.25vw, 1.02rem);
+  line-height: 1.7;
+  color: var(--ink-dim);
+  max-width: 54ch;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+
+.stats li {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px;
+  background: var(--bg);
+}
+
+.statV {
+  font-size: clamp(0.95rem, 1.5vw, 1.12rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.statL {
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+@media (max-width: 860px) {
+  .about {
+    height: auto;
+    padding-bottom: 10vh;
+  }
+  .sticky {
+    position: relative;
+    height: auto;
+    overflow: visible;
+    padding: 16vh var(--pad) 0;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+  .ticks {
+    display: none;
+  }
+  .stage {
+    position: static;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .state {
+    position: relative;
+    inset: auto;
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about {
+    height: auto;
+  }
+  .sticky {
+    position: relative;
+    height: auto;
+    overflow: visible;
+  }
+  .stage {
+    position: static;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .state {
+    position: relative;
+    inset: auto;
+    opacity: 1;
+  }
+}
