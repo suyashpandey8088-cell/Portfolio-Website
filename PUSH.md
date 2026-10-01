@@ -3,14 +3,11 @@
 The project is already a git repository with one commit and a correct `.gitignore`
 (`node_modules`, `.next`, build output and env files are excluded).
 
-## 1. Create the empty repo on GitHub
+## 1. The repo
 
-Go to <https://github.com/new> and create:
-
-- **Name:** `suyash-portfolio`
-- **Visibility:** Public
-- **Do NOT** tick "Add a README", ".gitignore" or "license" — the repo must be
-  empty, otherwise the first push is rejected as a non-fast-forward.
+<https://github.com/suyashpandey8088-cell/Portfolio-Website> — already created,
+public, empty, default branch `main`. The `origin` remote is already configured
+in this repository, so there is nothing to set up.
 
 ## 2. Get this code onto your machine
 
@@ -23,22 +20,33 @@ cd portfolio
 
 The extracted folder already contains the `.git` history — no need to re-init.
 
-## 3. Point it at your repo and push
-
-Replace `YOUR-USERNAME`:
+## 3. Push
 
 ```bash
-git remote add origin https://github.com/YOUR-USERNAME/suyash-portfolio.git
 git push -u origin main
 ```
 
-If git asks for a password, GitHub no longer accepts account passwords over HTTPS —
-paste a Personal Access Token (<https://github.com/settings/tokens>) instead, or use
-SSH:
+If git asks for a password: GitHub no longer accepts account passwords over HTTPS.
+Paste a Personal Access Token (<https://github.com/settings/tokens>) as the password,
+or switch the remote to SSH if you have a key on this machine:
 
 ```bash
-git remote add origin git@github.com:YOUR-USERNAME/suyash-portfolio.git
+git remote set-url origin git@github.com:suyashpandey8088-cell/Portfolio-Website.git
 git push -u origin main
+```
+
+### Commit authorship
+
+Commits are authored as
+`Suyash Pandey <241322812+suyashpandey8088-cell@users.noreply.github.com>` — GitHub's
+noreply address for your account, so they are attributed to you without publishing a
+personal email. To use a different address instead:
+
+```bash
+git config user.email "you@your-domain.com"
+FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch -f --env-filter '
+  export GIT_AUTHOR_EMAIL="you@your-domain.com"
+  export GIT_COMMITTER_EMAIL="you@your-domain.com"' -- --all
 ```
 
 ## 4. Verify it runs from a clean clone

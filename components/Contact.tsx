@@ -8,7 +8,7 @@ import s from './Contact.module.css';
 const LINKS = [
   { label: 'Email', href: 'mailto:suyash@example.com', handle: 'suyash@example.com' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/', handle: '/in/suyashpandey' },
-  { label: 'GitHub', href: 'https://github.com/', handle: '@suyashpandey' },
+  { label: 'GitHub', href: 'https://github.com/suyashpandey8088-cell', handle: '@suyashpandey8088-cell' },
   { label: 'Instagram', href: 'https://instagram.com/', handle: '@suyash' },
 ];
 

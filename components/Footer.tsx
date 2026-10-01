@@ -11,7 +11,7 @@ export default function Footer() {
         <p className={s.copy}>© 2026 Suyash Pandey</p>
         <ul className={s.links}>
           <li>
-            <a href="https://github.com/" target="_blank" rel="noreferrer noopener" data-cursor="open">
+            <a href="https://github.com/suyashpandey8088-cell" target="_blank" rel="noreferrer noopener" data-cursor="open">
               GitHub
             </a>
           </li>
