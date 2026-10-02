@@ -21,7 +21,7 @@ export default function Footer() {
             </a>
           </li>
           <li>
-            <a href="mailto:suyash@example.com" data-cursor="open">
+            <a href="mailto:suyashpandey8088@gmail.com" data-cursor="open">
               Email
             </a>
           </li>

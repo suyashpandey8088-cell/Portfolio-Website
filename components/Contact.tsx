@@ -6,10 +6,10 @@ import { useIsoLayoutEffect } from '@/lib/useIsoLayoutEffect';
 import s from './Contact.module.css';
 
 const LINKS = [
-  { label: 'Email', href: 'mailto:suyash@example.com', handle: 'suyash@example.com' },
+  { label: 'Email', href: 'mailto:suyashpandey8088@gmail.com', handle: 'suyashpandey8088@gmail.com' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/', handle: '/in/suyashpandey' },
   { label: 'GitHub', href: 'https://github.com/suyashpandey8088-cell', handle: '@suyashpandey8088-cell' },
-  { label: 'Instagram', href: 'https://instagram.com/', handle: '@suyash' },
+  { label: 'Instagram', href: 'https://instagram.com/suyash_s_pandey', handle: '@suyash_s_pandey' },
 ];
 
 const HEADING = ["LET'S", 'BUILD', 'SOMETHING.'];
@@ -94,7 +94,7 @@ export default function Contact() {
         <p className={s.sub} data-ctasub>
           Have an idea, project, or challenge?
         </p>
-        <a className={s.btn} href="mailto:suyash@example.com" data-ctabtn data-cursor="open">
+        <a className={s.btn} href="mailto:suyashpandey8088@gmail.com" data-ctabtn data-cursor="open">
           <span>START A CONVERSATION</span>
           <span className={s.arrow} aria-hidden="true">
             →
